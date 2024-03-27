@@ -1,0 +1,143 @@
+comment "GD32F4 Options"
+
+choice 
+        prompt "Select GD32F4 Chip"
+
+config GD32F450
+        bool "GD32F450"
+config GD32F405
+        bool "GD32F405"
+config GD32F407
+        bool "GD32F407"
+config GD32F470
+        bool "GD32F470"
+config GD32F425
+        bool "GD32F425"
+config GD32F427
+        bool "GD32F427"
+endchoice
+
+config GD32F4_CHIP
+        string
+        default "GD32F450"      if GD32F450
+        default "GD32F405"      if GD32F405
+        default "GD32F407"      if GD32F407
+        default "GD32F470"      if GD32F470
+        default "GD32F425"      if GD32F425
+        default "GD32F427"      if GD32F427
+
+
+menu "GD32F4 Peripherals"
+
+config GD32F4_ADC
+        bool "ADC"
+        default n
+config GD32F4_CAN
+        bool "CAN"
+        default n
+config GD32F4_CRC
+        bool "CRC"
+        default n
+config GD32F4_CTC
+        bool "CTC"
+        default n
+config GD32F4_DAC
+        bool "DAC"
+        default n
+config GD32F4_DBG
+        bool "DBG"
+        default n
+config GD32F4_DCI
+        bool "DCI"
+        default n
+config GD32F4_DMA
+        bool "DMA"
+        default n
+config GD32F4_ENET
+        bool "Enet"
+        default n
+config GD32F4_EXMC
+        bool "Exti"
+config GD32F4_EXTI
+        bool "Exmc"
+        default n
+config GD32F4_FMC
+        bool "FMC"
+        default n
+config GD32F4_FWDGT
+        bool "FWDGT"
+        default n
+config GD32F4_GPIO
+        bool "GPIO"
+        default n
+config GD32F4_I2C
+        bool "I2C"
+        default n
+config GD32F4_IPA
+        bool "IPA"
+        default n
+config GD32F4_IREF
+        bool "Iref"
+        default n
+config GD32F4_MISC
+        bool "Misc"
+        default n
+config GD32F4_PMU
+        bool "PMU"
+        default n
+config GD32F4_RCU
+        bool "RCU"
+        default n
+config GD32F4_RTC
+        bool "RTC"
+        default n
+config GD32F4_SDIO
+        bool "SDIO"
+        default n
+config GD32F4_SPI
+        bool "SPI"
+        default n
+config GD32F4_SYSCFG
+        bool "SysCfg"
+        default n
+config GD32F4_TIMER
+        bool "Timer"
+        default n
+config GD32F4_TLI
+        bool "TLI"
+        default n
+config GD32F4_TRNG
+        bool "TRNG"
+        default n
+config GD32F4_USART
+        bool "USART"
+        default n
+config GD32F4_WWDGT
+        bool "WWDGT"
+        default n
+endmenu
+
+
+config HXTAL_VALUE
+        int "High speed crystal oscillator (HXTAL) value in Hz"     
+        default 25000000
+
+config HXTAL_STARTUP_TIMEOUT
+        hex "High speed crystal oscillator timeout"
+        default 0xFFFF
+
+config IRC16M_VALUE
+        int "Internal 16Mhz oscillator (IRC16M) in Hz"
+        default 16000000
+
+config IRC16M_STARTUP_TIMEOUT
+        hex "High speed crystal oscillator timeout"
+        default 0x0500
+
+config IRC32K_VALUE
+        int "Internal 32Khz RC oscillator(IRC32K) in Hz"
+        default 32000
+
+config LXTAL_VALUE
+        int "Low speed crystal oscillator (LXTAL)in Hz"
+        default 32768

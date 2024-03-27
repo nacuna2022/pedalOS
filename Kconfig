@@ -1,0 +1,43 @@
+mainmenu "Musictribe RTOS"
+
+menu "Build Setup"
+
+config IMAGE_NAME
+        string "Output image filename"
+        default "pedalOS"
+
+menu "Binary output formats" 
+config RAW_BINARY
+        bool 'Raw binary'
+        default y
+config INTEL_HEX
+        bool "Intel Hex"
+        default y
+config MUSICTRIBE_SYX
+        bool "MusicTribe Syx"
+        default y
+        depends on INTEL_HEX
+endmenu # Binary output formats
+
+choice 
+        prompt "Optimization level"
+config OPTIMIZATION_NONE
+        bool "No optimization"
+config OPTIMIZATION_NORMAL
+        bool "Normal optimization"
+config OPTIMIZATION_AGGRESSIVE
+        bool "Aggressive optimization"
+endchoice # Optimization level
+
+config GENERATE_LINK_MAP
+        bool "Generate link map"
+
+config GENERATE_SYMBOL_FILE
+        bool "Generate symbol file"
+
+endmenu # Build Setup
+
+menu "System Type"
+source board/Kconfig
+endmenu
+

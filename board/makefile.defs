@@ -1,0 +1,5 @@
+
+
+SRCS+=$(TOPDIR)/board/board.c
+
+CLEANABLES+=$(SRCS:.c=.o)

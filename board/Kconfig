@@ -1,0 +1,32 @@
+
+#nacuna ??? BOARD SELECTS THE MCU
+choice 
+        prompt "Select musictribe board"
+config BM11M
+        bool "BM-11M (Low Pass Filter)"
+config BM15M
+        bool "BM-15M (Murf Box)"
+config BM18M
+        bool "BM-18M (Cluster Box)"
+config RL06
+        bool "RL06 (Looper)"
+config GD32F425_DEMO
+        bool "GD425 demo board"
+endchoice # music tribe boards
+
+config BOARD_NAME
+        string
+        default "bm11m"         if BM11M
+        default "bm15m"         if BM15M
+        default "bm18m"         if BM18M
+        default "rl06"          if RL06
+        default "gd32f425_demo" if GD32F425_DEMO
+
+source mcu/Kconfig
+source arm/Kconfig
+
+if GD32F425_DEMO
+source board/gd32f425_demo/Kconfig
+endif
+
+
