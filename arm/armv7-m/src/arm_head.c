@@ -2,11 +2,11 @@
 #include <compiler.h>
 #include <types.h>
 
-//extern void __sp_main[];
-extern unsigned long __arm_reset[];
+extern void * __SP_main[];
+extern void *__arm_reset[];
 
 const void * __vectors[] __section(".vector") __used = {
-        0,      /* SP_main */
+        __SP_main,      /* SP_main */
         __arm_reset,      /* reset */
         0,      /* nmi */
         0,      /* hard fault */

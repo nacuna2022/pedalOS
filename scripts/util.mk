@@ -58,8 +58,8 @@ define mkconfig
 endef
 
 define gensym
-	@echo "SYM $(notdir ($1))"
-	$(NM) -a $(2) > $(1)
+	@echo "SYM $(notdir $(1))"
+	@$(NM) -a $(2) > $(1)
 endef
 
 define mkfreertosconfig
