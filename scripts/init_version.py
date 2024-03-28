@@ -18,7 +18,7 @@ def update_config_header(v):
         version_hdr.write("#ifndef __INCLUDE_CONFIG_VERSION_H__\n")
         version_hdr.write("#define __INCLUDE_CONFIG_VERSION_H___\n")
         version_hdr.write("\n")
-        version_hdr.write("This is is auto-generated! Do not edit!\n")
+        version_hdr.write("/* This is is auto-generated! Do not edit! */\n")
         version_hdr.write("\n")
         version_hdr.write(f'#define CONFIG_VERSION_STRING\t"{v}"\n')
         version_hdr.write(f"#define CONFIG_VERSION_MAJOR\t{major}\n")
