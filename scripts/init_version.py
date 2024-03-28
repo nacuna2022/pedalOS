@@ -54,7 +54,7 @@ def process_version_string(version_git):
 
 
 if __name__ == "__main__":
-    ret = subprocess.run(["git", "describe", "--match", "v*.*.*"], capture_output=True)
+    ret = subprocess.run(["git", "describe", "--abbrev=0","--match", "v*.*.*"], capture_output=True)
     if ret.returncode != 0:
         process_version_string("v0.0.0")
     else:
