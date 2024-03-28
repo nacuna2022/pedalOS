@@ -7,13 +7,13 @@ def update_config_header(v):
     major = verlist[0][1:]
     minor = verlist[1]
     
-    tmplist = verlist[2].split("-", 1)
+    tmplist = verlist[2].split("-")
     patch = tmplist[0]
     try:
         pre_rel = tmplist[1]
     except:
         pre_rel = ""
-        
+
     with open("include/config_version.h", "w") as version_hdr:
         version_hdr.write("#ifndef __INCLUDE_CONFIG_VERSION_H__\n")
         version_hdr.write("#define __INCLUDE_CONFIG_VERSION_H___\n")
@@ -55,8 +55,8 @@ def process_version_string(version_git):
 
 if __name__ == "__main__":
     ret = subprocess.run(["git", "describe", "--match", "v*.*.*"], capture_output=True)
-    if ret == 0:
-        process_version_string("v.0.0.0")
+    if ret.returncode != 0:
+        process_version_string("v0.0.0")
     else:
         version_git = ret.stdout.decode().rstrip()
         process_version_string(version_git)

@@ -13,6 +13,9 @@ tags
 *.syx
 *.sym
 *.map
+.version
+.version.*
+include/config_version.h
 include/config.h
 include/FreeRTOSConfig.h
 
